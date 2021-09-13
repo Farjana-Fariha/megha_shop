@@ -12,13 +12,15 @@ const showProducts = (products) => {
     const allProducts = products.map((pd) => pd);
     for (const product of allProducts) {
         const image = product.image;
+        const productTitle = product.title;
+        const title = productTitle.slice(0, 15);
         const div = document.createElement("div");
         div.classList.add("product");
         div.innerHTML = `<div class="single-product">
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h4 class = "fw-bold mt-2">${product.title}</h4>
+      <h4 class = "fw-bold mt-2"><span>${title}</span><span>...</span></h4>
       <p>Category: ${product.category}</p>
       <p><span class = "fw-bold me-5"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i> ${product.rating.rate}</span> <i class="fas fa-user text-success"></i> ${product.rating.count}</p>
       <h2 class = "text-danger">Price: $ ${product.price}</h2>
